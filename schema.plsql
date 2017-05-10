@@ -57,31 +57,30 @@ create table ALab1_ChiTieu
 -- Oracle khong cho update primary key nen khong the cai dat " on update cascade"
 
 alter table ALab1_NhanVien add
-  constraint FK_NhanVien_Phong foreign key (Phong) references ALab1_PhongBan(MaPhong) ON DELETE set null
+  constraint FK_NhanVien_Phong foreign key (Phong) references ALab1_PhongBan(MaPhong) ON DELETE set null;
 alter table ALab1_NhanVien add
-  constraint FK_NhanVien_ChiNhanh foreign key (ChiNhanh) references ALab1_ChiNhanh(MaCN) on delete set null
+  constraint FK_NhanVien_ChiNhanh foreign key (ChiNhanh) references ALab1_ChiNhanh(MaCN) on delete set null;
 
 alter table ALab1_PhongBan add
-  constraint FK_PhongBan_NhanVien foreign key (TruongPhong) references ALab1_NhanVien(MaNV) on delete set null
+  constraint FK_PhongBan_NhanVien foreign key (TruongPhong) references ALab1_NhanVien(MaNV) on delete set null;
 alter table ALab1_PhongBan add
-  constraint FK_PhongBan_ChiNhanh foreign key (ChiNhanh) references ALab1_ChiNhanh(MaCN) on delete set null
+  constraint FK_PhongBan_ChiNhanh foreign key (ChiNhanh) references ALab1_ChiNhanh(MaCN) on delete set null;
 
 alter table ALab1_ChiNhanh add
-  constraint FK_ChiNhanh_NhanVien foreign key (TruongChiNhanh) references ALab1_NhanVien(MaNV) on delete set null
+  constraint FK_ChiNhanh_NhanVien foreign key (TruongChiNhanh) references ALab1_NhanVien(MaNV) on delete set null;
   
 alter table ALab1_DuAn add
-  constraint FK_DuAn_PhongBan foreign key(PhongChuTri) references ALab1_PhongBan(MaPhong) on delete set null
+  constraint FK_DuAn_PhongBan foreign key(PhongChuTri) references ALab1_PhongBan(MaPhong) on delete set null;
 alter table ALab1_DuAn add
-  constraint FK_DuAn_NhanVien foreign key(TruongDA) references ALab1_NhanVien(MaNV) on delete set null
+  constraint FK_DuAn_NhanVien foreign key(TruongDA) references ALab1_NhanVien(MaNV) on delete set null;
 
 alter table ALab1_PhanCong add
-  constraint FK_PhanCong_DuAn foreign key (MaDA) references ALab1_DeAn(MaDA)  on delete cascade
+  constraint FK_PhanCong_DuAn foreign key (DuAn) references ALab1_DuAn(MaDA)  on delete cascade;
 alter table ALab1_PhanCong add
-  constraint FK_PhanCong_NhanVien foreign key (MaNV) references ALab1_NhanVien(MaNV)  on delete cascade
+  constraint FK_PhanCong_NhanVien foreign key (MaNV) references ALab1_NhanVien(MaNV)  on delete cascade;
   
 alter table ALab1_ChiTieu add
-  constraint FK_ChiTieu_DuAn foreign key (DuAn) references ALab1_DuAn(MaDA) on delete cascade
-
+  constraint FK_ChiTieu_DuAn foreign key (DuAn) references ALab1_DuAn(MaDA) on delete cascade;
 
 
 
