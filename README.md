@@ -18,9 +18,9 @@ Yêu cầu **GIT**
 * [ ] Sử dụng GIT theo Gitflow Workflow.
 
 Yêu cầu **bắt buộc**
-* [ ] Viết script tạo cấu trúc cơ sở dữ liệu (**1412502**)
-* [ ] Viết script thêm dữ liệu (**1412542**)
-* [ ] Tạo tài khoản cho các nhân viên trong bảng Nhân Viên. Tên tài khoản trùng với mã nhân viên. Tạo ít nhất 5 tài khoản cho mỗi vị trí: trưởng dự án, trưởng phòng, trưởng chi nhánh, nhân viên, giám đốc và ít nhất 5 dòng cho các bảng dữ liệu còn lại. (**1412543**)
+* [x ] Viết script tạo cấu trúc cơ sở dữ liệu (**1412502**)
+* [x ] Viết script thêm dữ liệu (**1412542**)
+* [x] Tạo tài khoản cho các nhân viên trong bảng Nhân Viên. Tên tài khoản trùng với mã nhân viên. Tạo ít nhất 5 tài khoản cho mỗi vị trí: trưởng dự án, trưởng phòng, trưởng chi nhánh, nhân viên, giám đốc và ít nhất 5 dòng cho các bảng dữ liệu còn lại. (**1412543**)
 * [ ] Tạo các role cho các vị trí phù hợp cho công ty. (**1412543**)
 * [ ] Chỉ trưởng phòng được phép cập nhật và thêm thông tin vào dự án (DAC). (**1412542**)
 * [ ] Giám đốc được phép xem thông tin dự án gồm (mã dự án, tên dự án, kinh phí, tên phòng chủ trì, tên chi nhánh chủ trì, tên trưởng dự án và tổng chi) (DAC). (**1412543**)
