@@ -85,20 +85,20 @@ alter table ALab1_ChiTieu add
   -----------------------------------------------------------------------------------------------------------
   -- ************ NHẬP LIỆU  ****************-----------------
   
-  insert into ALab1_ChiNhanh values(1, 'Ho Chi Minh', null); -- TRỤ SỞ CHÍNH
-insert into ALab1_ChiNhanh values(2, 'Ha Noi', null);
+  insert into ALab1_ChiNhanh values(2, 'Ho Chi Minh', null); -- TRỤ SỞ CHÍNH
+insert into ALab1_ChiNhanh values(1, 'Ha Noi', null);
 insert into ALab1_ChiNhanh values(3, 'Da Nang', null);
 insert into ALab1_ChiNhanh values(4, 'Hai Phong', null);
 insert into ALab1_ChiNhanh values(5, 'Can Tho', null);
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-insert into ALab1_PhongBan values ('NS1', 'Human resources HCM', null, null,5, 1);
-insert into ALab1_PhongBan values ('KH1', 'Planning HCM', null, null, 4, 1);
-insert into ALab1_PhongBan values ('KT1', 'Accounting HCM', null, null, 2, 1);
+insert into ALab1_PhongBan values ('NS2', 'Human resources HCM', null, null,5, 2);
+insert into ALab1_PhongBan values ('KH2', 'Planning HCM', null, null, 4, 2);
+insert into ALab1_PhongBan values ('KT2', 'Accounting HCM', null, null, 2, 2);
 
-insert into ALab1_PhongBan values ('NS2', 'Human resources HN', null, null, 2, 2);
-insert into ALab1_PhongBan values ('KH2', 'Planning HN', null, null, 5,2);
-insert into ALab1_PhongBan values ('KT2', 'Accounting HN', null, null,2,2); 
+insert into ALab1_PhongBan values ('NS1', 'Human resources HN', null, null, 2, 1);
+insert into ALab1_PhongBan values ('KH1', 'Planning HN', null, null, 5,1);
+insert into ALab1_PhongBan values ('KT1', 'Accounting HN', null, null,2,1); 
 
 insert into ALab1_PhongBan values ('NS3', 'Human resources DN', null, null,2, 3);
 insert into ALab1_PhongBan values ('KH3', 'Planning DN', null, null, 4, 3);
@@ -315,6 +315,8 @@ CREATE USER NV050 IDENTIFIED BY NV050;
 --Cấp quyền đăng nhập cho mọi User
 grant connect to public;
 
-
+-- Them cot ChucVu vao bang NhanVien de phan biet Giam Doc va Nhan Vien Thuong
+alter table NhanVien add ChucVu numeric(1,0) default 0; -- 0: Nhan vien binh thuong, 1: Giam Doc
+update NhanVien set ChucVu = 1 where manv = 'NV046' or manv = 'NV047' or manv = 'NV048' or manv = 'NV049' or manv = 'NV050';
 
 
