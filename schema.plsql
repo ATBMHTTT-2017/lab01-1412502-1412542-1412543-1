@@ -258,6 +258,10 @@ insert into ALab1_ChiTieu values (14, 'Travel', 50, '004');
 insert into ALab1_ChiTieu values (15, 'Facilities', 100, '004');
 
 --******** TẠO USER ************
+-- Tạo User Lab01 để quản lý toàn bộ cơ sở dữ liệu của Lab01 ( tạo và gán quyền dba cho uer Lab01 )
+CREATE USER Lab01 IDENTIFIED BY dba;
+GRANT DBA TO Lab01;
+
 --Mỗi User ứng với một nhân viên trong bảng Nhân viên
 alter session set "_ORACLE_SCRIPT"= true;
 
