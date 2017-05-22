@@ -1,4 +1,4 @@
--- Truong du án chi duoc phep doc, ghi thông tin chi tiêu cua du án mình quan ly (VPD)
+-- ***Truong du Ã¡n chi duoc phep doc, ghi thÃ´ng tin chi tiÃªu cua du Ã¡n mÃ¬nh quan ly (VPD)***
 --Tao role Truong du an
 create role r_TruongDuAn;
 
@@ -21,7 +21,7 @@ begin
     where truongDA = getUser;
   
     if (flag != 0) then
-      select maDA into getMaDA from Lab01.DUAN where truongDA = getUser;
+      select maDA into getMaDA from QTV.DUAN where truongDA = getUser;
       return 'duAn = ' || getMaDA;
     else return ''; 
     end if;
