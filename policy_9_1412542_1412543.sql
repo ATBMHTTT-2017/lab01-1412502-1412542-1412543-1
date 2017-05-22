@@ -511,3 +511,82 @@ END;
 
 
 grant select on QTV.DuAn to r_TruongChiNhanh;
+
+--**** Trưởng chi nhánh được phép truy xuất tất cả dữ liệu chi tiêu của dự án của tất cả các phòng ban thuộc quyền quản lý của mình***
+-- 1) Tao nhan cho cac truong chi nhanh 
+ BEGIN
+  SA_LABEL_ADMIN.CREATE_LABEL -- Nhan cho Truong chi nhanh Da Nang
+  ( 
+      POLICY_NAME => 'Access_DuAn',
+      LABEL_TAG   => 51,
+      LABEL_VALUE => 'HC:HR,PLAN,ACCOUNT:DN'
+  ); 
+ END;
+ 
+BEGIN
+  SA_LABEL_ADMIN.CREATE_LABEL -- Nhan cho Truong chi nhanh Ho Chi Minh
+  ( 
+      POLICY_NAME => 'Access_DuAn',
+      LABEL_TAG   => 61,
+      LABEL_VALUE => 'HC:HR,PLAN,ACCOUNT:HCM'
+  );
+ END;
+
+BEGIN
+  SA_LABEL_ADMIN.CREATE_LABEL -- Nhan cho Truong chi nhanh Ha Noi
+  ( 
+      POLICY_NAME => 'Access_DuAn',
+      LABEL_TAG   => 71,
+      LABEL_VALUE => 'HC:HR,PLAN,ACCOUNT:HN'
+  );
+ END;
+ 
+ BEGIN
+  SA_LABEL_ADMIN.CREATE_LABEL -- Nhan cho Truong chi nhanh Chinh
+  ( 
+      POLICY_NAME => 'Access_DuAn',
+      LABEL_TAG   => 81,
+      LABEL_VALUE => 'HC:HR,PLAN,ACCOUNT:MAIN'
+  );
+ END;
+ 
+ --2) Gan nhan cho Users NV016, NV017, NV018, NV019, NV020
+ BEGIN
+  SA_USER_ADMIN.SET_USER_LABELS -- Truong chi nhanh Chinh
+  (
+      POLICY_NAME      => 'ACCESS_DUAN',
+      USER_NAME        => 'NV016',  
+      MAX_READ_LABEL   => 'HC:HR,PLAN,ACCOUNT:MAIN',
+      MAX_WRITE_LABEL  => 'HC:HR,PLAN,ACCOUNT:MAIN'
+    );
+ END;
+ 
+ BEGIN
+  SA_USER_ADMIN.SET_USER_LABELS -- Truong chi nhanh HCM
+  (
+      POLICY_NAME      => 'ACCESS_DUAN',
+      USER_NAME        => 'NV017',  
+      MAX_READ_LABEL   => 'HC:HR,PLAN,ACCOUNT:HCM',
+      MAX_WRITE_LABEL  => 'HC:HR,PLAN,ACCOUNT:HCM'
+    );
+ END;
+ 
+BEGIN
+  SA_USER_ADMIN.SET_USER_LABELS -- Truong chi nhanh Da Nang
+  (
+      POLICY_NAME      => 'ACCESS_DUAN',
+      USER_NAME        => 'NV018',  
+      MAX_READ_LABEL   => 'HC:HR,PLAN,ACCOUNT:DN',
+      MAX_WRITE_LABEL  => 'HC:HR,PLAN,ACCOUNT:DN'
+    );
+END;
+ 
+BEGIN
+  SA_USER_ADMIN.SET_USER_LABELS -- Truong chi nhanh Ha Noi
+  (
+      POLICY_NAME      => 'ACCESS_DUAN',
+      USER_NAME        => 'NV020',  
+      MAX_READ_LABEL   => 'HC:HR,PLAN,ACCOUNT:HN',
+      MAX_WRITE_LABEL  => 'HC:HR,PLAN,ACCOUNT:HN'
+    );
+ END;
